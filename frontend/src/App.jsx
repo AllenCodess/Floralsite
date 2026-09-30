@@ -1,7 +1,11 @@
+import NavBar from "./components/NavBar";
+
 function App() {
   return (
     <>
-      <h1>React app test</h1>
+      <NavBar />
+
+      <img className="heroimg" src="./../public/heroimg.png" alt="" />
     </>
   );
 }
