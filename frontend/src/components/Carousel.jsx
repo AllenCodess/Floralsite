@@ -11,8 +11,8 @@ const Carousel = () => {
           </p>
         </div>
         <div className="track">
-          {[...images, ...images].map((img) => (
-            <div className="item" key={img}>
+          {[...images, ...images].map((img, index) => (
+            <div className="item" key={index}>
               <img className="heroimg" src={`${img}.webp`} />
             </div>
           ))}

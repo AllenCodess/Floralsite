@@ -135,6 +135,67 @@
   width: 700px;
 }
 
+/* CALL TO ACTION SECTION */
+
+.ctacontainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.ctaimg1,
+.ctaimg2 {
+  width: 100%;
+  height: 750px;
+  object-fit: cover;
+}
+
+.cta-left {
+  position: relative;
+}
+
+.cta-right {
+  position: relative;
+}
+
+.cta-left-text {
+  position: absolute;
+  top: 20px;
+  color: white;
+  width: 50%;
+  margin-left: 2rem;
+  text-shadow:
+    1px 1px 2px black,
+    0 0 200px black,
+    0 0 5px black;
+}
+
+.cta-header {
+  letter-spacing: -5px;
+}
+
+.cta-header,
+.cta-header2 {
+  font-family: "Bodoni Moda", serif;
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 70px;
+}
+
+.cta-desc {
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.cta-btn {
+  padding: 10px 30px;
+  color: white;
+  background-color: rgb(255, 146, 164);
+  border: none;
+  border-radius: 10px;
+}
+
 /* Media Queries */
 
 @media (max-width: 767px) {

@@ -18,6 +18,7 @@ const NavBar = () => {
           <ul className="nav-list">
             <li className="nav-list-items">HOME</li>
             <li className="nav-list-items">ABOUT</li>
+            <li className="nav-list-items">GALLERY</li>
             <li className="nav-list-items">SHOP ALL</li>
             <li className="nav-list-items">LOGIN</li>
           </ul>
@@ -30,6 +31,7 @@ const NavBar = () => {
       <ul className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         <li onClick={toggleHamburger}>HOME</li>
         <li onClick={toggleHamburger}>ABOUT</li>
+        <li onClick={toggleHamburger}>GALLERY</li>
         <li onClick={toggleHamburger}>SHOP ALL</li>
         <li onClick={toggleHamburger}>LOGIN</li>
       </ul>
