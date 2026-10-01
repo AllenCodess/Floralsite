@@ -1,3 +1,5 @@
+import HamburgerMenu from "./HamburgerMenu";
+
 const NavBar = () => {
   return (
     <>
@@ -12,6 +14,7 @@ const NavBar = () => {
             <li className="nav-list-items">SHOP ALL</li>
             <li className="nav-list-items">LOGIN</li>
           </ul>
+          <HamburgerMenu />
         </div>
       </div>
     </>
