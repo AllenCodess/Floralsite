@@ -5,8 +5,7 @@ function App() {
   return (
     <>
       <NavBar />
-
-      <img className="heroimg" src="./../public/heroimg.png" alt="" />
+      <Carousel />
     </>
   );
 }
