@@ -27,6 +27,50 @@
   margin-right: 0.5rem;
 }
 
+/* Hamburger Menu */
+
+.hamburger-menu-container {
+  display: none;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100vh;
+  background: white;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(-100%); /* hidden to the left */
+  transition: transform 0.3s ease;
+  z-index: 10; /* sits above the hero text */
+}
+
+.mobile-menu.open {
+  transform: translateX(0); /* slides in */
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(1px);
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9; /* just under the menu (10) */
+}
+
+.menu-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* Hero Section */
 
 .heroimg {
@@ -89,4 +133,16 @@
 
 .item {
   width: 700px;
+}
+
+/* Media Queries */
+
+@media (max-width: 767px) {
+  .hamburger-menu-container {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+  }
 }

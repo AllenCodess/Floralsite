@@ -1,6 +1,13 @@
 import HamburgerMenu from "./HamburgerMenu";
+import { useState } from "react";
 
 const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleHamburger = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <>
       <div className="nav-container">
@@ -14,9 +21,18 @@ const NavBar = () => {
             <li className="nav-list-items">SHOP ALL</li>
             <li className="nav-list-items">LOGIN</li>
           </ul>
-          <HamburgerMenu />
+          <div className="menuIcon" onClick={toggleHamburger}>
+            <HamburgerMenu />
+          </div>
         </div>
       </div>
+      <div className={`menu-backdrop ${menuOpen ? "open" : ""}`} onClick={toggleHamburger} />
+      <ul className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <li onClick={toggleHamburger}>HOME</li>
+        <li onClick={toggleHamburger}>ABOUT</li>
+        <li onClick={toggleHamburger}>SHOP ALL</li>
+        <li onClick={toggleHamburger}>LOGIN</li>
+      </ul>
     </>
   );
 };

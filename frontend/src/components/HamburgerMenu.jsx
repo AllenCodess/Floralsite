@@ -5,7 +5,9 @@ const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Hamburger toggled={open} toggle={setOpen} />
+      <div className="hamburger-menu-container">
+        <Hamburger toggled={open} toggle={setOpen} />
+      </div>
     </>
   );
 };
