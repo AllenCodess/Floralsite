@@ -209,12 +209,29 @@
 
 .footer-container {
   display: flex;
-  justify-content: space-around;
+  max-width: 1400px;
+  justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 hr {
   height: 100px;
+  margin: 0 3rem;
+}
+
+.footer-contact {
+  font-family: "Oswald", sans-serif;
+}
+
+.footer-contact-item {
+  list-style: none;
+  font-family: "Oswald", sans-serif;
+}
+
+.footer-icon {
+  font-size: 20px;
+  padding-right: 0.5rem;
 }
 
 /* Media Queries */
