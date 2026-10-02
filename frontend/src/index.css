@@ -25,8 +25,6 @@
 .nav-list {
   display: flex;
   list-style: none;
-
-  top: 0;
 }
 
 .nav-list-items {
@@ -201,6 +199,22 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+/* FOOTER  */
+
+.footer-img {
+  width: 300px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+hr {
+  height: 100px;
 }
 
 /* Media Queries */

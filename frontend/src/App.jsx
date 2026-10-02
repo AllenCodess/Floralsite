@@ -1,6 +1,7 @@
 import NavBar from "./components/NavBar";
 import Carousel from "./components/Carousel";
 import CallToAction from "./components/CallToAction";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <NavBar />
       <Carousel />
       <CallToAction />
+      <Footer />
     </>
   );
 }
