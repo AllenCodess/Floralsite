@@ -8,7 +8,7 @@
 /* NavBar Section */
 
 .logo-img {
-  width: 110px;
+  width: 200px;
 }
 
 .nav-container {
@@ -139,8 +139,8 @@
 
 .ctacontainer {
   display: grid;
-  grid-template-columns: auto auto;
-  width: 60%;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
   margin: 0 auto;
 }
 
@@ -161,7 +161,7 @@
 
 .cta-left-text {
   position: absolute;
-  top: 20px;
+  top: 40px;
   color: white;
   width: 50%;
   margin-left: 2rem;
@@ -178,9 +178,9 @@
 .cta-header,
 .cta-header2 {
   font-family: "Bodoni Moda", serif;
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 500;
-  line-height: 70px;
+  line-height: 50px;
 }
 
 .cta-desc {
@@ -194,6 +194,7 @@
   background-color: rgb(255, 146, 164);
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 /* Media Queries */
@@ -230,5 +231,19 @@
 
   .hero-text {
     top: 250px;
+  }
+
+  .ctacontainer {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    margin: 0 auto;
+  }
+
+  .ctaimg1,
+  .ctaimg2 {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
   }
 }
