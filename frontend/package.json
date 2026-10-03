@@ -15,7 +15,8 @@
     "@fortawesome/react-fontawesome": "^3.5.0",
     "hamburger-react": "^2.5.2",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-router": "^7.18.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

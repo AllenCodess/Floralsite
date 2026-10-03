@@ -1,15 +1,17 @@
 import NavBar from "./components/NavBar";
-import Carousel from "./components/Carousel";
-import CallToAction from "./components/CallToAction";
-import Footer from "./components/Footer";
+
+import { Routes, Route } from "react-router";
+import Gallery from "./pages/Gallery";
+import HomePage from "./pages/Homepage";
 
 function App() {
   return (
     <>
       <NavBar />
-      <Carousel />
-      <CallToAction />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Routes>
     </>
   );
 }
