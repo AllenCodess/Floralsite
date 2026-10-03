@@ -16,6 +16,7 @@
     "hamburger-react": "^2.5.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-plock": "^3.6.1",
     "react-router": "^7.18.4"
   },
   "devDependencies": {
