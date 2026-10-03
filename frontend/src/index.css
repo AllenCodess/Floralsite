@@ -143,7 +143,7 @@
 
 .ctacontainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   grid-gap: 10px;
   margin: 0 auto;
 }
@@ -151,7 +151,7 @@
 .ctaimg1,
 .ctaimg2 {
   width: 100%;
-  height: 750px;
+  height: 650px;
   object-fit: cover;
 }
 
@@ -198,6 +198,7 @@
   background-color: rgb(255, 146, 164);
   border: none;
   border-radius: 10px;
+
   cursor: pointer;
 }
 
