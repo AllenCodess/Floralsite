@@ -1,5 +1,6 @@
 import HamburgerMenu from "./HamburgerMenu";
 import { useState } from "react";
+import { Link } from "react-router";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,10 +17,26 @@ const NavBar = () => {
         </div>
         <div className="nav-right">
           <ul className="nav-list">
-            <li className="nav-list-items">HOME</li>
-            <li className="nav-list-items">ABOUT</li>
-            <li className="nav-list-items">GALLERY</li>
-            <li className="nav-list-items">SHOP ALL</li>
+            <li className="nav-list-items">
+              <Link className="nav-links" to="/">
+                HOME
+              </Link>
+            </li>
+            <li className="nav-list-items">
+              <Link className="nav-links" to="/about">
+                ABOUT
+              </Link>
+            </li>
+            <li className="nav-list-items">
+              <Link className="nav-links" to="/gallery">
+                GALLERY
+              </Link>
+            </li>
+            <li className="nav-list-items">
+              <Link className="nav-links" to="/shop">
+                SHOP ALL
+              </Link>
+            </li>
             <li className="nav-list-items">LOGIN</li>
           </ul>
           <div className="menuIcon" onClick={toggleHamburger}>
