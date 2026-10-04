@@ -41,18 +41,19 @@ const MasonryGrid = () => {
 
   return (
     <>
-      <p>MasonryGrid</p>
-      <Masonry
-        items={images}
-        config={{
-          columns: [1, 2, 3, 4, 5],
-          gap: [8, 12, 16, 16, 16],
-          media: [640, 768, 1024, 1280, 1280],
-        }}
-        render={(image, index) => {
-          return <img key={index} src={image} style={{ width: "100%", height: "auto" }} />;
-        }}
-      />
+      <div className="masonry-grid">
+        <Masonry
+          items={images}
+          config={{
+            columns: [1, 2, 3, 4, 5],
+            gap: [8, 8, 8, 8, 8],
+            media: [640, 768, 1024, 1280, 1236],
+          }}
+          render={(image, index) => {
+            return <img key={index} src={image} style={{ width: "100%", height: "auto" }} />;
+          }}
+        />
+      </div>
       {/* <div className="gallery-container">
         {images.map((img, index) => (
           <div key={index}>
