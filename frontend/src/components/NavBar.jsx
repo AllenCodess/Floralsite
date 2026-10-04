@@ -46,10 +46,26 @@ const NavBar = () => {
       </div>
       <div className={`menu-backdrop ${menuOpen ? "open" : ""}`} onClick={toggleHamburger} />
       <ul className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        <li onClick={toggleHamburger}>HOME</li>
-        <li onClick={toggleHamburger}>ABOUT</li>
-        <li onClick={toggleHamburger}>GALLERY</li>
-        <li onClick={toggleHamburger}>SHOP ALL</li>
+        <li onClick={toggleHamburger}>
+          <Link className="nav-links" to="/">
+            HOME
+          </Link>
+        </li>
+        <li onClick={toggleHamburger}>
+          <Link className="nav-links" to="/about">
+            ABOUT
+          </Link>
+        </li>
+        <li onClick={toggleHamburger}>
+          <Link className="nav-links" to="/gallery">
+            GALLERY
+          </Link>
+        </li>
+        <li onClick={toggleHamburger}>
+          <Link className="nav-links" to="/shop">
+            SHOP ALL
+          </Link>
+        </li>
         <li onClick={toggleHamburger}>LOGIN</li>
       </ul>
     </>

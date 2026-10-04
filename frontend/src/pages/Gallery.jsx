@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 const Gallery = () => {
   return (
     <>
-      <h1>GALLERY PAGE</h1>
       <MasonryGrid />
       <Footer />
     </>
