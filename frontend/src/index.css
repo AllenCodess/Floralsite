@@ -299,6 +299,53 @@
   line-height: 25px;
 }
 
+/* SHOP ALL */
+
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 90%;
+  margin: 0 auto;
+  row-gap: 1.3em;
+}
+
+.product-name {
+  font-family: "Bodoni Moda", serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.product-text-container {
+  text-align: center;
+}
+
+.product-desc {
+  font-family: "Oswald", sans-serif;
+  color: rgb(82, 82, 82);
+}
+
+.product-price {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.product-img {
+  width: 550px;
+  height: 500px;
+  object-fit: cover;
+  object-position: 0% 100%;
+}
+
+.product-btn {
+  padding: 2px 50px;
+  background-color: rgb(255, 134, 154);
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+}
+
 /* FOOTER  */
 
 .footer-img {
