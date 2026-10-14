@@ -304,9 +304,10 @@
 .products-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.3rem;
   width: 90%;
   margin: 0 auto;
-  row-gap: 1.3em;
+  row-gap: 1.3rem;
 }
 
 .product-name {
@@ -330,10 +331,10 @@
 }
 
 .product-img {
-  width: 550px;
-  height: 500px;
+  width: 100%;
+  height: 350px;
   object-fit: cover;
-  object-position: 0% 100%;
+  object-position: 0% 60%;
 }
 
 .product-btn {
@@ -460,5 +461,17 @@ hr {
 
   .floral-about {
     display: none;
+  }
+
+  .products-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .product-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: 0% 100%;
   }
 }

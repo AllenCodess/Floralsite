@@ -45,13 +45,25 @@ const products = [
     price: "$130.00",
     image: "/public/product6.jpeg",
   },
+  {
+    id: 7,
+    name: "Rose Bouquet",
+    description: "A classic red rose bouquet available in different sizes for every occasion.",
+    price: "Prices depends on size of bouquet",
+    image: "/public/product7.jpeg",
+  },
+  {
+    id: 7,
+    name: "Custom Rose Patterns",
+    description: "Customize Rose patterns for your bouquet.",
+    price: "$100.00",
+    image: "/public/product8.jpeg",
+  },
 ];
 
 const ShopPage = () => {
   return (
     <>
-      <h1>Shop page ALL PRODUCTS</h1>
-
       <div className="products-container">
         {products.map((product) => (
           <div className="product-card" key={product.id}>
