@@ -12,5 +12,6 @@ export default defineConfig({
     proxy: {
       "/api": "http://localhost:5000",
     },
+    allowedHosts: ["lazily-endurable-corncob.ngrok-free.dev"],
   },
 });
