@@ -17,7 +17,11 @@ const InquiryPage = () => {
         <div className="inquiry-top inquiry-container">
           <div className="inquiry-left">
             <div className="top-container">
-              <h1 className="top-header">WEDDINGS & ENGAGEMENTS</h1>
+              <h1 className="top-header">
+                WEDDINGS & ENGAGEMENTS <span className="inquiries-span">Inquiries</span>
+              </h1>
+              <hr className="inquiry-divider" />
+
               <p className="top-desc">
                 Let us be a part of your most meaningful moments. From intimate proposals to
                 unforgettable wedding celebrations, we create customfloral designs that bring your
