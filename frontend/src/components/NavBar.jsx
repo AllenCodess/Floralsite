@@ -37,6 +37,11 @@ const NavBar = () => {
                 SHOP ALL
               </Link>
             </li>
+            <li className="nav-list-items">
+              <Link className="nav-links" to="/inquiry">
+                INQUIRY
+              </Link>
+            </li>
             <li className="nav-list-items">LOGIN</li>
           </ul>
           <div className="menuIcon" onClick={toggleHamburger}>

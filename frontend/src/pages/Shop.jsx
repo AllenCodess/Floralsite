@@ -49,7 +49,7 @@ const products = [
     id: 7,
     name: "Rose Bouquet",
     description: "A classic red rose bouquet available in different sizes for every occasion.",
-    price: "Prices depends on size of bouquet",
+    price: "Price depends on size of bouquet",
     image: "/public/product7.jpeg",
   },
   {
