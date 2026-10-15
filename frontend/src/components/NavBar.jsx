@@ -71,6 +71,11 @@ const NavBar = () => {
             SHOP ALL
           </Link>
         </li>
+        <li onClick={toggleHamburger}>
+          <Link className="nav-links" to="/inquiry">
+            INQUIRY
+          </Link>
+        </li>
         <li onClick={toggleHamburger}>LOGIN</li>
       </ul>
     </>

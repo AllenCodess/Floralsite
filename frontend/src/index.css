@@ -383,6 +383,12 @@
   margin-top: 1rem;
 }
 
+.inquiry-right {
+  display: flex;
+  margin-top: 1rem;
+  column-gap: 2rem;
+}
+
 .top-container {
   flex: 1;
 }
@@ -399,6 +405,13 @@
   font-family: "Cinzel", serif;
   font-size: 60px;
   width: 70%;
+  line-height: 55px;
+}
+
+.bottom-header {
+  font-family: "Cinzel", serif;
+  font-size: 50px;
+  width: 80%;
   line-height: 55px;
 }
 
@@ -423,6 +436,21 @@
   font-weight: 600;
   width: 90%;
   margin-top: 1rem;
+}
+
+.steps-header {
+  font-family: "Cinzel", serif;
+  color: rgb(255, 57, 90);
+}
+
+.steps-desc {
+  width: 65%;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+}
+
+.inquiry-steps {
+  margin: 1rem 0;
 }
 
 /* FOOTER  */
@@ -467,12 +495,26 @@ hr {
     width: 60%;
     line-height: 35px;
   }
+
+  .bottom-header {
+    font-family: "Cinzel", serif;
+    font-size: 40px;
+    width: 80%;
+    line-height: 35px;
+  }
 }
 @media (max-width: 1318px) {
   .top-header {
     font-family: "Cinzel", serif;
     font-size: 40px;
     width: 70%;
+    line-height: 35px;
+  }
+
+  .bottom-header {
+    font-family: "Cinzel", serif;
+    font-size: 40px;
+    width: 90%;
     line-height: 35px;
   }
 }
@@ -483,6 +525,12 @@ hr {
     font-size: 40px;
     width: 90%;
     line-height: 35px;
+  }
+  .bottom-header {
+    font-family: "Cinzel", serif;
+    font-size: 30px;
+    width: 90%;
+    line-height: 30px;
   }
 }
 
@@ -593,6 +641,8 @@ hr {
   .inquiry-left {
     flex-direction: column;
     width: 90%;
+    justify-content: center;
+    align-items: center;
   }
   .inquiries-span {
     font-family: "Pinyon Script", cursive;
@@ -611,12 +661,22 @@ hr {
 
   .inquiry-img {
     flex: 1;
-    width: 300px;
+    width: 90%;
     height: 200px;
+    margin-top: 1rem;
   }
 
   .inquiry-container {
     width: 90%;
     margin: 0 auto;
+  }
+
+  .inquiry-right {
+    flex-direction: column-reverse;
+  }
+
+  .bottom-header {
+    font-size: 30px;
+    line-height: 30px;
   }
 }
