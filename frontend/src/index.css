@@ -503,6 +503,15 @@ hr {
     line-height: 35px;
   }
 }
+
+@media (max-width: 1388px) {
+  .about-container {
+    width: 90%;
+  }
+  .floral-about {
+    display: none;
+  }
+}
 @media (max-width: 1318px) {
   .top-header {
     font-family: "Cinzel", serif;
@@ -516,6 +525,12 @@ hr {
     font-size: 40px;
     width: 90%;
     line-height: 35px;
+  }
+}
+
+@media (max-width: 1270px) {
+  .div-pink-bg {
+    display: none;
   }
 }
 
