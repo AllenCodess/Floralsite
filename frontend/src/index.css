@@ -37,6 +37,12 @@
   font-weight: 600;
 }
 
+.cta-links {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
 /* Hamburger Menu */
 
 .hamburger-menu-container {
@@ -199,12 +205,14 @@
 }
 
 .cta-btn {
-  padding: 10px 30px;
-  color: white;
-  background-color: rgb(255, 146, 164);
+  padding: 2px 50px;
+  background-color: rgb(255, 134, 154);
+  border-radius: 5px;
   border: none;
-  border-radius: 10px;
-  cursor: pointer;
+  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  white-space: nowrap;
 }
 
 /* Gallery */
@@ -385,6 +393,7 @@
 
 .inquiry-right {
   display: flex;
+  flex-direction: row-reverse;
   margin-top: 1rem;
   column-gap: 2rem;
 }
@@ -474,11 +483,13 @@ hr {
 
 .footer-contact {
   font-family: "Oswald", sans-serif;
+  font-size: 16px;
 }
 
 .footer-contact-item {
   list-style: none;
   font-family: "Oswald", sans-serif;
+  font-size: 14px;
 }
 
 .footer-icon {
@@ -599,6 +610,7 @@ hr {
 
   .footer-container {
     flex-direction: column;
+    text-align: center;
   }
 
   hr {

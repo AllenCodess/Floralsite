@@ -11,7 +11,7 @@ const CallToAction = () => {
             <p className="cta-desc">Fresh floral designs just added.</p>
             <button className="cta-btn">
               {" "}
-              <Link className="nav-links" to="/shop">
+              <Link className="cta-links" to="/shop">
                 SHOP ALL
               </Link>
             </button>
@@ -24,7 +24,7 @@ const CallToAction = () => {
             <p className="cta-desc">Shop the arrangements everyone loves.</p>
             <button className="cta-btn">
               {" "}
-              <Link className="nav-links" to="/shop">
+              <Link className="cta-links" to="/shop">
                 SHOP ALL
               </Link>
             </button>
@@ -36,8 +36,8 @@ const CallToAction = () => {
             <h1 className="cta-header2">WEDDINGS</h1>
             <p className="cta-desc">Special florals for special occasions.</p>
             <button className="cta-btn">
-              <Link className="nav-links" to="/gallery">
-                VIEW GALLERY
+              <Link className="cta-links" to="/inquiry">
+                VIEW INQURIES
               </Link>
             </button>
           </div>
@@ -48,7 +48,7 @@ const CallToAction = () => {
             <h1 className="cta-header2">GALLERY</h1>
             <p className="cta-desc">Browse our latest floral creations.</p>
             <button className="cta-btn">
-              <Link className="nav-links" to="/gallery">
+              <Link className="cta-links" to="/gallery">
                 VIEW GALLERY
               </Link>
             </button>

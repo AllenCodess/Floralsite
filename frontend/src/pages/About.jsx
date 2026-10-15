@@ -22,7 +22,7 @@ const AboutPage = () => {
               they’re given for.
             </p>
             <button className="cta-btn">
-              <Link className="nav-links" to="/shop">
+              <Link className="cta-links" to="/shop">
                 SHOP ALL
               </Link>
             </button>
