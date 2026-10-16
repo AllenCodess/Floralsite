@@ -50,7 +50,7 @@ const MasonryGrid = () => {
           items={images}
           config={{
             columns: [1, 2, 3, 4, 5],
-            gap: [8, 8, 8, 8, 8],
+            gap: [3, 3, 3, 3, 3],
             media: [640, 768, 1024, 1280, 1236],
           }}
           render={(image, index) => {
