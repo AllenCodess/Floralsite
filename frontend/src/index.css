@@ -354,6 +354,13 @@
   color: white;
 }
 
+.product-link {
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+}
+
 /* INQUIRY TEXT INFO*/
 
 .inquiry-info {
