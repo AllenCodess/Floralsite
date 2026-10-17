@@ -14,7 +14,7 @@ const ShopPage = () => {
               <p className="product-desc">{product.description}</p>
               <p className="product-price">{product.price}</p>
               <button className="product-btn">
-                <Link className="product-link" to={`/products/${product.id}`}>
+                <Link className="product-link" data={products} to={`/product/${product.id}`}>
                   VIEW ITEM
                 </Link>{" "}
               </button>
