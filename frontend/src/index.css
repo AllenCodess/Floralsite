@@ -372,7 +372,8 @@
 
 .pd-img {
   width: 100%;
-  height: 700px;
+  height: 500px;
+  object-fit: cover;
 }
 
 .pd-divider {
