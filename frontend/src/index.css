@@ -389,6 +389,29 @@
   font-family: "Oswald", sans-serif;
 }
 
+.product-details-btn {
+  padding: 0px 20px;
+  margin: 0 1rem;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.pd-btn {
+  padding: 2px 50px;
+  background-color: rgb(255, 134, 154);
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  white-space: nowrap;
+}
+
+.quantity-controls {
+  display: flex;
+  margin: 1rem 0;
+}
+
 /* INQUIRY TEXT INFO*/
 
 .inquiry-info {
@@ -739,5 +762,9 @@ hr {
   .bottom-header {
     font-size: 30px;
     line-height: 30px;
+  }
+
+  .productDetails-container {
+    flex-direction: column;
   }
 }
