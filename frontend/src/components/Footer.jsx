@@ -48,7 +48,7 @@ const Footer = () => {
             <a href="https://Facebook.com" target="_blank">
               <FontAwesomeIcon className="footer-icon" icon={faFacebook} />
             </a>
-            <a href="https://tiktok.com" target="_blank">
+            <a href="https://tiktok.com/@daisyyinthegardenllc" target="_blank">
               <FontAwesomeIcon className="footer-icon" icon={faTiktok} />
             </a>
           </div>
