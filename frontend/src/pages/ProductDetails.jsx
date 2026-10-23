@@ -1,11 +1,33 @@
 import { useParams } from "react-router";
-import products from "./../components/data";
 import Footer from "../components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProductDetails = () => {
+  const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`/api/products/${id}`);
+        if (!res) {
+          throw new Error("Network reponse was not ok");
+        }
+        const result = await res.json();
+        setProduct(result.data);
+        console.log(result);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handlePlus = () => setQuantity((prev) => prev + 1);
   const handleMinus = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
@@ -15,7 +37,9 @@ const ProductDetails = () => {
     setQuantity(1); // Reset quantity after adding
   };
 
-  const product = products.find((p) => p.id === Number(id));
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <>
       <div className="productDetails-container">
@@ -24,7 +48,7 @@ const ProductDetails = () => {
         </div>
         <div className="pd-right">
           <h1 className="pd-header">{product.name}</h1>
-          <h2 className="pd-price">{product.price}</h2>
+          <h2 className="pd-price">{`$${product.price}.00`}</h2>
           <hr className="pd-divider" />
           <p>{product.description}</p>
           <div className="quantity-controls">
