@@ -13,6 +13,16 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+export const getOneProduct = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    res.status(200).json({ status: "success", data: product });
+  } catch (error) {
+    res.status(401).json({ status: "fail", message: error.message });
+  }
+};
+
 export const createProduct = async (req, res) => {
   try {
     const newProduct = await Product.create(req.body);
