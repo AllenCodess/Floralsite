@@ -1,6 +1,8 @@
 import { useParams } from "react-router";
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../slices/cartSlice";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
@@ -8,6 +10,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,8 +36,8 @@ const ProductDetails = () => {
   const handleMinus = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
   const handleAddToCart = () => {
-    addToCart({ ...product, quantity });
-    setQuantity(1); // Reset quantity after adding
+    dispatch(addItem({ ...product, quantity }));
+    setQuantity(1);
   };
 
   if (loading) return <p>Loading...</p>;
@@ -73,7 +76,7 @@ const ProductDetails = () => {
             </p>
 
             <p>
-              <strong>Color Palette:</strong> {product.palette}
+              <strong>Color Palette:</strong> {product.color}
             </p>
 
             <p>
