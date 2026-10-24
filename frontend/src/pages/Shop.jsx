@@ -16,7 +16,6 @@ const ShopPage = () => {
         }
         const result = await res.json();
         setProducts(result.data);
-        console.log(result);
       } catch (error) {
         setError(error.message);
       } finally {
