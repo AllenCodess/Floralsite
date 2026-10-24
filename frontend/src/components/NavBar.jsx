@@ -45,10 +45,12 @@ const NavBar = () => {
             </li>
 
             <li className="nav-list-items">
-              CART{" "}
-              {cartItems.length > 0 && (
-                <span className="cart-length-number">{cartItems.length}</span>
-              )}
+              <Link className="nav-links" to="/cart">
+                CART{" "}
+                {cartItems.length > 0 && (
+                  <span className="cart-length-number">{cartItems.length}</span>
+                )}
+              </Link>
             </li>
             <li className="nav-list-items">LOGIN</li>
           </ul>
