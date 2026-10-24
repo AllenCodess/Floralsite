@@ -1,10 +1,11 @@
 import HamburgerMenu from "./HamburgerMenu";
 import { useState } from "react";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { cartItems } = useSelector((state) => state.cart);
   const toggleHamburger = () => {
     setMenuOpen(!menuOpen);
   };
@@ -41,6 +42,13 @@ const NavBar = () => {
               <Link className="nav-links" to="/inquiry">
                 INQUIRY
               </Link>
+            </li>
+
+            <li className="nav-list-items">
+              CART{" "}
+              {cartItems.length > 0 && (
+                <span className="cart-length-number">{cartItems.length}</span>
+              )}
             </li>
             <li className="nav-list-items">LOGIN</li>
           </ul>
