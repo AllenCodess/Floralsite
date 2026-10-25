@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { increaseQuantity, decreaseQuantity } from "../../slices/cartSlice";
+import { Link } from "react-router";
+import { increaseQuantity, decreaseQuantity, removeItem } from "../../slices/cartSlice";
 import ProductDetails from "./ProductDetails";
 
 const Cart = () => {
@@ -12,6 +13,10 @@ const Cart = () => {
 
   const handleSubtractQuantity = (id) => {
     dispatch(decreaseQuantity(id));
+  };
+
+  const handleRemove = (id) => {
+    dispatch(removeItem(id));
   };
 
   let total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -36,6 +41,9 @@ const Cart = () => {
                   <div className="cart-text">
                     <p className="cart-info-name">{item.name}</p>
                     <p className="cart-info-desc">{item.description}</p>
+                    <button className="cart-remove-btn" onClick={() => handleRemove(item._id)}>
+                      Remove
+                    </button>
                   </div>
                 </div>
                 <p>${item.price.toFixed(2)}</p>
@@ -68,7 +76,12 @@ const Cart = () => {
             </div>
             <div className="order-btn-container">
               <button className="order-sum-btn">Proceed to Checkout</button>
-              <button className="order-sum-btn">Continue Shopping</button>
+              <button className="order-sum-btn">
+                {" "}
+                <Link className="nav-links order-sum-btn" to={"/shop"}>
+                  Continue Shopping
+                </Link>{" "}
+              </button>
             </div>
           </div>
         </div>

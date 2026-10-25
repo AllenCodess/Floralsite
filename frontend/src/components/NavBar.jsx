@@ -86,6 +86,11 @@ const NavBar = () => {
             INQUIRY
           </Link>
         </li>
+        <li onClick={toggleHamburger}>
+          <Link className="nav-links" to="/cart">
+            CART
+          </Link>
+        </li>
         <li onClick={toggleHamburger}>LOGIN</li>
       </ul>
     </>

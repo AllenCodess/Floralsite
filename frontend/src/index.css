@@ -651,6 +651,15 @@
   font-family: "Oswald", sans-serif;
 }
 
+.cart-remove-btn {
+  margin-top: 1rem;
+  padding: 2px;
+  color: red;
+  font-weight: 700;
+  background-color: white;
+  border: 2px solid red;
+}
+
 /* FOOTER  */
 
 .footer-img {
@@ -732,6 +741,13 @@ hr {
   .div-pink-bg {
     display: none;
   }
+  .cart-container {
+    width: 90%;
+    margin: 4rem auto;
+    display: grid;
+    column-gap: 60px;
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1129px) {
@@ -746,6 +762,14 @@ hr {
     font-size: 30px;
     width: 90%;
     line-height: 30px;
+  }
+  .cart-container {
+    width: 90%;
+    margin: 4rem auto;
+    display: grid;
+    column-gap: 60px;
+    grid-template-columns: 1fr;
+    align-items: center;
   }
 }
 
@@ -907,5 +931,11 @@ hr {
     column-gap: 60px;
     grid-template-columns: 1fr;
     align-items: center;
+  }
+
+  .cart-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
   }
 }
