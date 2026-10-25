@@ -48,7 +48,7 @@ const NavBar = () => {
               <Link className="nav-links" to="/cart">
                 CART{" "}
                 {cartItems.length > 0 && (
-                  <span className="cart-length-number">{cartItems.length}</span>
+                  <span className="cart-length-number">({cartItems.length})</span>
                 )}
               </Link>
             </li>

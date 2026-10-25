@@ -13,6 +13,8 @@ const Cart = () => {
   const handleSubtractQuantity = (id) => {
     dispatch(decreaseQuantity(id));
   };
+
+  let total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return (
     <>
       <div className="cart-container">
@@ -52,7 +54,24 @@ const Cart = () => {
             ))}
           </div>
         </div>
-        <div className="cart-right-side"></div>
+        <div className="cart-right-side">
+          <div className="cart-right-box">
+            <h2 className="order-sum-header">Order Summary</h2>
+            <div className="cart-total">
+              <p>Subtotal ({cartItems.length} Items)</p>
+              <p>${total}.00</p>
+            </div>
+            <hr className="cart-total-divider" />
+            <div className="cart-total">
+              <h2 className="total-price">Total</h2>
+              <p className="total-price">${total}.00</p>
+            </div>
+            <div className="order-btn-container">
+              <button className="order-sum-btn">Proceed to Checkout</button>
+              <button className="order-sum-btn">Continue Shopping</button>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
