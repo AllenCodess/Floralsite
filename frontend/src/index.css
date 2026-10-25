@@ -532,6 +532,7 @@
   grid-template-columns: 3fr 1fr 1fr 1fr;
   align-items: center;
   width: 80%;
+  font-weight: 600;
 }
 
 .cart-divider {
@@ -568,9 +569,29 @@
   object-fit: cover;
 }
 
+.cart-info-name {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
 .cart-text {
   margin-left: 1rem;
   width: 50%;
+}
+
+.cart-quantity {
+  margin: 0 1rem;
+}
+
+.cart-btn {
+  width: 30px;
+}
+
+.cart-info-desc {
+  color: rgb(83, 83, 83);
+  font-size: 14px;
+  font-weight: 100;
 }
 
 .product-info {

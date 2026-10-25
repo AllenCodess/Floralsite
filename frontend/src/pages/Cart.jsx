@@ -1,8 +1,18 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { increaseQuantity, decreaseQuantity } from "../../slices/cartSlice";
+import ProductDetails from "./ProductDetails";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
+  const handleAddQuantity = (id) => {
+    dispatch(increaseQuantity(id));
+  };
+
+  const handleSubtractQuantity = (id) => {
+    dispatch(decreaseQuantity(id));
+  };
   return (
     <>
       <div className="cart-container">
@@ -27,7 +37,16 @@ const Cart = () => {
                   </div>
                 </div>
                 <p>${item.price.toFixed(2)}</p>
-                <p>{item.quantity}</p>
+
+                <div className="quantity-container">
+                  <button className="cart-btn" onClick={() => handleSubtractQuantity(item._id)}>
+                    -
+                  </button>
+                  <span className="cart-quantity">{item.quantity}</span>
+                  <button className="cart-btn" onClick={() => handleAddQuantity(item._id)}>
+                    +
+                  </button>
+                </div>
                 <p>${(item.price * item.quantity).toFixed(2)}</p>
               </div>
             ))}
