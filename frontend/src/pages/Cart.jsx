@@ -29,7 +29,7 @@ const Cart = () => {
           <div className="cart-left-side">
             <h1>Your Cart</h1>
             <hr className="cart-divider" />
-            <div className="cart-row">
+            <div className="cart-row cart-header">
               <h3>PRODUCT</h3>
               <p>PRICE</p>
               <p>QUANTITY</p>

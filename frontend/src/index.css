@@ -948,4 +948,15 @@ hr {
     height: 100px;
     object-fit: cover;
   }
+
+  .cart-header {
+    display: none;
+  }
+  .single-product {
+    grid-template-columns: 1fr;
+  }
+
+  .quantity-container {
+    margin: 1rem 0;
+  }
 }
