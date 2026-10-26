@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router";
 import { increaseQuantity, decreaseQuantity, removeItem } from "../../slices/cartSlice";
-import ProductDetails from "./ProductDetails";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -19,7 +18,7 @@ const Cart = () => {
     dispatch(removeItem(id));
   };
 
-  let total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <>
@@ -71,21 +70,20 @@ const Cart = () => {
               <h2 className="order-sum-header">Order Summary</h2>
               <div className="cart-total">
                 <p> Subtotal ({cartItems.reduce((sum, item) => sum + item.quantity, 0)}) Items</p>
-                <p>${total}.00</p>
+                <p>${total.toFixed(2)}</p>
               </div>
               <hr className="cart-total-divider" />
               <div className="cart-total">
                 <h2 className="total-price">Total</h2>
-                <p className="total-price">${total}.00</p>
+                <p className="total-price">${total.toFixed(2)}</p>
               </div>
               <div className="order-btn-container">
-                <button className="order-sum-btn">Proceed to Checkout</button>
-                <button className="order-sum-btn">
-                  {" "}
-                  <Link className="nav-links order-sum-btn" to={"/shop"}>
-                    Continue Shopping
-                  </Link>{" "}
-                </button>
+                <Link className="nav-links order-sum-btn" to={"/checkout"}>
+                  Guest Checkout
+                </Link>{" "}
+                <Link className="nav-links order-sum-btn" to={"/shop"}>
+                  Continue Shopping
+                </Link>{" "}
               </div>
             </div>
           </div>
