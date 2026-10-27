@@ -52,7 +52,7 @@ const Cart = () => {
                   <p>${item.price.toFixed(2)}</p>
 
                   <div className="quantity-container">
-                    <button className="cart-btn" onClick={() => handleSubtractQuantity(item._id)}>
+                    <button className="cart-btn " onClick={() => handleSubtractQuantity(item._id)}>
                       -
                     </button>
                     <span className="cart-quantity">{item.quantity}</span>
