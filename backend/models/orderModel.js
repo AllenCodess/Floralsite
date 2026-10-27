@@ -37,14 +37,20 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: [true, "Order must have a Postal Code"],
     },
-    items: [
-      {
-        product: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
-        name: { type: String, required: true },
-        price: { type: Number, required: true },
-        quantity: { type: Number, required: true },
+    items: {
+      type: [
+        {
+          product: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
+          name: { type: String, required: true },
+          price: { type: Number, required: true },
+          quantity: { type: Number, required: true },
+        },
+      ],
+      validate: {
+        validator: (items) => items.length > 0,
+        message: "Order must have at least one item",
       },
-    ],
+    },
     total: {
       type: Number,
       required: [true, "Order must have a total"],
