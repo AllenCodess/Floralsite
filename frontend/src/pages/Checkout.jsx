@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router";
 
 const Checkout = () => {
+  const { cartItems } = useSelector((state) => state.cart);
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -40,9 +44,9 @@ const Checkout = () => {
   return (
     <>
       <div className="checkout-container">
-        <h1 className="checkout-header">Guest Checkout</h1>
-        <div className="checkout-form">
-          <form onSubmit={handleSubmit}>
+        <div className="checkout-form-container">
+          <h1 className="checkout-header">Guest Checkout</h1>
+          <form className="checkout-form" onSubmit={handleSubmit}>
             <div className="shipping-section">
               <h2>SHIPPING INFORMATION</h2>
               <div className="name-email-inputs">
@@ -136,10 +140,35 @@ const Checkout = () => {
                 />
               </div>
             </div>
-            <button className="checkout-btn" type="submit">
-              submit
+            <button className="checkout-btn " type="submit">
+              Place Order
             </button>
           </form>
+        </div>
+        <div className="order-summary">
+          <div className="checkout-right-box">
+            <h2 className="order-sum-header">Order Summary</h2>
+
+            <div className="item-list">
+              {cartItems.map((item) => (
+                <div className="checkout-item-list" key={item._id}>
+                  <div className="product-info">
+                    {<img className="checkout-image" src={item.image} alt={item.name} />}
+                    <div className="cart-text">
+                      <p className="checkout-info-name">{item.name}</p>
+                      <p>${item.price.toFixed(2)}</p>
+                      <p>Quantity: {item.quantity}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <hr className="cart-total-divider" />
+            <div className="cart-total">
+              <h2 className="total-price">Total</h2>
+              <p className="total-price">${total.toFixed(2)}</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
