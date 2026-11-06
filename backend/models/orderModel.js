@@ -55,6 +55,18 @@ const orderSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Order must have a total"],
     },
+    isPaid: {
+      type: Boolean,
+      default: false,
+    },
+    paidAt: {
+      type: Date,
+    },
+    paymentResult: {
+      id: String,
+      status: String,
+      email_address: String,
+    },
   },
 
   { timestamps: true },
