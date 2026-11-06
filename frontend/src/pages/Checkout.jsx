@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Checkout = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -16,22 +16,37 @@ const Checkout = () => {
     city: "",
     postalCode: "",
   });
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setError("");
+    setLoading(true);
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      deliveryDate: "",
-      deliveryInstructions: "",
-      address: "",
-      city: "",
-      postalCode: "",
-    });
+    try {
+      const res = await fetch("/api/orders/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          items: cartItems.map((item) => ({ _id: item._id, quantity: item.quantity })),
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Could not place order");
+      }
+
+      navigate(`/order/${result.data.order._id}`);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -140,8 +155,9 @@ const Checkout = () => {
                 />
               </div>
             </div>
-            <button className="checkout-btn " type="submit">
-              Place Order
+            {error && <p className="checkout-error">{error}</p>}
+            <button className="checkout-btn" type="submit" disabled={loading}>
+              {loading ? "Placing Order..." : "Place Order"}
             </button>
           </form>
         </div>

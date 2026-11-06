@@ -15,7 +15,7 @@ export const createOrder = async (req, res) => {
       postalCode,
       deliveryDate,
       deliveryInstructions,
-    } = req.body;
+    } = req.body || {};
 
     if (!items || items.length === 0) {
       return res.status(400).json({ status: "fail", message: "Cart is empty" });
