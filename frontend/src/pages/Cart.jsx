@@ -6,16 +6,16 @@ const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const handleAddQuantity = (id) => {
-    dispatch(increaseQuantity(id));
+  const handleAddQuantity = (item) => {
+    dispatch(increaseQuantity({ _id: item._id, size: item.size }));
   };
 
-  const handleSubtractQuantity = (id) => {
-    dispatch(decreaseQuantity(id));
+  const handleSubtractQuantity = (item) => {
+    dispatch(decreaseQuantity({ _id: item._id, size: item.size }));
   };
 
-  const handleRemove = (id) => {
-    dispatch(removeItem(id));
+  const handleRemove = (item) => {
+    dispatch(removeItem({ _id: item._id, size: item.size }));
   };
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -38,13 +38,14 @@ const Cart = () => {
             <hr className="cart-divider" />
             <div className="item-list">
               {cartItems.map((item) => (
-                <div className="cart-row single-product" key={item._id}>
+                <div className="cart-row single-product" key={`${item._id}-${item.size}`}>
                   <div className="product-info">
-                    {<img className="cart-image" src={item.image} alt={item.name} />}
+                    <img className="cart-image" src={item.image} alt={item.name} />
                     <div className="cart-text">
                       <p className="cart-info-name">{item.name}</p>
+                      {item.size && <p className="cart-info-size">{item.size}</p>}
                       <p className="cart-info-desc">{item.description}</p>
-                      <button className="cart-remove-btn" onClick={() => handleRemove(item._id)}>
+                      <button className="cart-remove-btn" onClick={() => handleRemove(item)}>
                         Remove
                       </button>
                     </div>
@@ -52,11 +53,11 @@ const Cart = () => {
                   <p>${item.price.toFixed(2)}</p>
 
                   <div className="quantity-container">
-                    <button className="cart-btn " onClick={() => handleSubtractQuantity(item._id)}>
+                    <button className="cart-btn" onClick={() => handleSubtractQuantity(item)}>
                       -
                     </button>
                     <span className="cart-quantity">{item.quantity}</span>
-                    <button className="cart-btn" onClick={() => handleAddQuantity(item._id)}>
+                    <button className="cart-btn" onClick={() => handleAddQuantity(item)}>
                       +
                     </button>
                   </div>
@@ -69,7 +70,7 @@ const Cart = () => {
             <div className="cart-right-box">
               <h2 className="order-sum-header">Order Summary</h2>
               <div className="cart-total">
-                <p> Subtotal ({cartItems.reduce((sum, item) => sum + item.quantity, 0)}) Items</p>
+                <p>Subtotal ({cartItems.reduce((sum, item) => sum + item.quantity, 0)} items)</p>
                 <p>${total.toFixed(2)}</p>
               </div>
               <hr className="cart-total-divider" />
@@ -78,12 +79,12 @@ const Cart = () => {
                 <p className="total-price">${total.toFixed(2)}</p>
               </div>
               <div className="order-btn-container">
-                <Link className="nav-links order-sum-btn" to={"/checkout"}>
+                <Link className="nav-links order-sum-btn" to="/checkout">
                   Guest Checkout
-                </Link>{" "}
-                <Link className="nav-links order-sum-btn" to={"/shop"}>
+                </Link>
+                <Link className="nav-links order-sum-btn" to="/shop">
                   Continue Shopping
-                </Link>{" "}
+                </Link>
               </div>
             </div>
           </div>

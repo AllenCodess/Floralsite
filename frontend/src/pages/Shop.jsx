@@ -11,8 +11,8 @@ const ShopPage = () => {
     const fetchData = async () => {
       try {
         const res = await fetch("/api/products/all");
-        if (!res) {
-          throw new Error("Network reponse was not ok");
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
         }
         const result = await res.json();
         setProducts(result.data);
@@ -28,21 +28,22 @@ const ShopPage = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
   return (
     <>
       <div className="products-container">
         {products.map((product) => (
           <div className="product-card" key={product._id}>
-            <img className="product-img" src={product.image} alt="" />
+            <img className="product-img" src={product.image} alt={product.name} />
             <div className="product-text-container">
               <h3 className="product-name">{product.name}</h3>
               <p className="product-desc">{product.description}</p>
-              <p className="product-price">{`$${product.price}.00`}</p>
-              <button className="product-btn">
-                <Link className="product-link" data={products} to={`/product/${product._id}`}>
-                  VIEW ITEM
-                </Link>{" "}
-              </button>
+              <p className="product-price">
+                {product.sizes?.length > 0 ? "Prices vary" : `$${product.price.toFixed(2)}`}
+              </p>
+              <Link className="product-btn product-link" to={`/product/${product._id}`}>
+                VIEW ITEM
+              </Link>
             </div>
           </div>
         ))}
