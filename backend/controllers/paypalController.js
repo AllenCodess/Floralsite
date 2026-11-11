@@ -1,11 +1,14 @@
 import Product from "../models/productModel.js";
+import Order from "../models/orderModel.js";
 import { getAccessToken } from "../utils/paypal.js";
 
-// Works out the real total from the database
-const calcTotal = async (items) => {
+// Looks up real prices and builds the items to save
+const buildItems = async (items) => {
   let total = 0;
+  const orderItems = [];
+
   for (const item of items) {
-    const product = await Product.findById(item.id);
+    const product = await Product.findById(item._id);
     if (!product) throw new Error("Product not found");
 
     let price = product.price;
@@ -14,22 +17,37 @@ const calcTotal = async (items) => {
       if (!size) throw new Error("Size not found");
       price = size.price;
     }
+
     total += price * item.quantity;
+    orderItems.push({
+      product: product._id,
+      name: product.name,
+      size: item.size,
+      price,
+      quantity: item.quantity,
+    });
   }
-  return total;
+
+  return { orderItems, total };
+};
+
+const paypalFetch = async (path, method = "GET") => {
+  const token = await getAccessToken();
+  const res = await fetch(`${process.env.PAYPAL_API_URL}${path}`, {
+    method,
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+  });
+  return res.json();
 };
 
 export const createOrder = async (req, res) => {
   try {
-    const total = await calcTotal(req.body.items);
+    const { total } = await buildItems(req.body.items);
     const token = await getAccessToken();
 
     const response = await fetch(`${process.env.PAYPAL_API_URL}/v2/checkout/orders`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         intent: "CAPTURE",
         purchase_units: [{ amount: { currency_code: "USD", value: total.toFixed(2) } }],
@@ -45,29 +63,36 @@ export const createOrder = async (req, res) => {
 
 export const captureOrder = async (req, res) => {
   try {
-    const token = await getAccessToken();
+    const { items, ...customer } = req.body;
+    const { orderItems, total } = await buildItems(items);
 
-    const response = await fetch(
-      `${process.env.PAYPAL_API_URL}/v2/checkout/orders/${req.params.id}/capture`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      },
-    );
+    // 1. Check the form data BEFORE taking any money
+    const order = new Order({ ...customer, items: orderItems, total });
+    await order.validate();
 
-    const data = await response.json();
+    // 2. Make sure the PayPal order amount matches the cart
+    const paypalOrder = await paypalFetch(`/v2/checkout/orders/${req.params.id}`);
+    if (paypalOrder.purchase_units?.[0]?.amount?.value !== total.toFixed(2)) {
+      return res.status(400).json({ message: "Payment amount does not match order" });
+    }
 
+    // 3. Take the money
+    const data = await paypalFetch(`/v2/checkout/orders/${req.params.id}/capture`, "POST");
     if (data.status !== "COMPLETED") {
       return res.status(400).json({ message: "Payment not completed" });
     }
 
-    // Payment worked: save your order here
-    // const order = await Order.create({ ...req.body, paypalOrderId: data.id, isPaid: true });
+    // 4. Save the order as paid
+    order.isPaid = true;
+    order.paidAt = Date.now();
+    order.paymentResult = {
+      id: data.id,
+      status: data.status,
+      email_address: data.payer?.email_address,
+    };
+    await order.save();
 
-    res.status(201).json({ message: "Payment successful", paypalOrderId: data.id });
+    res.status(201).json({ data: { order } });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

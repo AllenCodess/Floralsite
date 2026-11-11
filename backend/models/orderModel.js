@@ -12,15 +12,15 @@ const orderSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: [true, "Order must have a email"],
+      required: [true, "Order must have an email"],
     },
     phoneNumber: {
       type: String,
-      required: [true, "Order must have a Phone Number"],
+      required: [true, "Order must have a phone number"],
     },
     deliveryDate: {
       type: Date,
-      required: [true, "Order must have a Delivery Date"],
+      required: [true, "Order must have a delivery date"],
     },
     deliveryInstructions: {
       type: String,
@@ -31,17 +31,18 @@ const orderSchema = new mongoose.Schema(
     },
     city: {
       type: String,
-      required: [true, "Order must have an city"],
+      required: [true, "Order must have a city"],
     },
     postalCode: {
       type: String,
-      required: [true, "Order must have a Postal Code"],
+      required: [true, "Order must have a postal code"],
     },
     items: {
       type: [
         {
           product: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
           name: { type: String, required: true },
+          size: { type: String },
           price: { type: Number, required: true },
           quantity: { type: Number, required: true },
         },
@@ -68,7 +69,6 @@ const orderSchema = new mongoose.Schema(
       email_address: String,
     },
   },
-
   { timestamps: true },
 );
 
