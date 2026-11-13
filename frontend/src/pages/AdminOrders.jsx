@@ -96,7 +96,8 @@ const AdminOrders = () => {
                   <h3>Items</h3>
                   {order.items.map((item) => (
                     <p key={item._id}>
-                      {item.name} × {item.quantity}
+                      {item.name}
+                      {item.size && ` (${item.size})`} × {item.quantity}
                     </p>
                   ))}
                 </div>

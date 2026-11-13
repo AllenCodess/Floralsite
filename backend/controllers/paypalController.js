@@ -4,10 +4,19 @@ import { getAccessToken } from "../utils/paypal.js";
 
 // Looks up real prices and builds the items to save
 const buildItems = async (items) => {
+  if (!Array.isArray(items) || items.length === 0) {
+    throw new Error("Cart is empty");
+  }
+
   let total = 0;
   const orderItems = [];
 
   for (const item of items) {
+    const quantity = Number(item.quantity);
+    if (!Number.isInteger(quantity) || quantity < 1) {
+      throw new Error("Invalid quantity");
+    }
+
     const product = await Product.findById(item._id);
     if (!product) throw new Error("Product not found");
 
@@ -18,13 +27,13 @@ const buildItems = async (items) => {
       price = size.price;
     }
 
-    total += price * item.quantity;
+    total += price * quantity;
     orderItems.push({
       product: product._id,
       name: product.name,
       size: item.size,
       price,
-      quantity: item.quantity,
+      quantity,
     });
   }
 
