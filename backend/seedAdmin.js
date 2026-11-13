@@ -4,7 +4,7 @@ import Admin from "./models/adminModel.js";
 
 const seedAdmin = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.DATABASE);
 
     const email = process.env.ADMIN_EMAIL;
     const password = process.env.ADMIN_PASSWORD;
