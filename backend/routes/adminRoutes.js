@@ -5,4 +5,9 @@ const router = express.Router();
 
 router.post("/login", loginAdmin);
 
+router.post("/logout", (req, res) => {
+  res.clearCookie("jwt");
+  res.json({ message: "Logged out" });
+});
+
 export default router;

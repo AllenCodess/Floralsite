@@ -70,3 +70,8 @@ export const createOrder = async (req, res) => {
     res.status(500).json({ status: "fail", message: error.message });
   }
 };
+
+export const getOrders = async (req, res) => {
+  const orders = await Order.find({ isPaid: true }).sort({ createdAt: -1 });
+  res.json(orders);
+};
