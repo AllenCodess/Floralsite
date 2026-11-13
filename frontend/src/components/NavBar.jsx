@@ -52,7 +52,11 @@ const NavBar = () => {
                 )}
               </Link>
             </li>
-            <li className="nav-list-items">LOGIN</li>
+            <li className="nav-list-items">
+              <Link className="nav-links" to="/login">
+                LOGIN
+              </Link>
+            </li>
           </ul>
           <div className="menuIcon" onClick={toggleHamburger}>
             <HamburgerMenu />
@@ -91,7 +95,11 @@ const NavBar = () => {
             CART
           </Link>
         </li>
-        <li onClick={toggleHamburger}>LOGIN</li>
+        <li onClick={toggleHamburger}>
+          <Link className="nav-links" to="/login">
+            LOGIN
+          </Link>
+        </li>
       </ul>
     </>
   );

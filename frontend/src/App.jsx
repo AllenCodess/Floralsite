@@ -9,6 +9,9 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import LoginPage from "./pages/LoginPage";
+import AdminRoute from "./components/AdminRoute";
+import AdminOrders from "./pages/AdminOrders";
 
 function App() {
   return (
@@ -24,6 +27,10 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/order/:id" element={<OrderConfirmation />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route element={<AdminRoute />}>
+          <Route path="/admin/orders" element={<AdminOrders />} />
+        </Route>
       </Routes>
     </>
   );
